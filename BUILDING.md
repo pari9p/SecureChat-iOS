@@ -1,69 +1,81 @@
-# Building
+# Building SecureChat iOS
 
-We typically develop against the latest stable version of Xcode.
+This guide will help you set up your development environment and build SecureChat iOS from source.
 
-## 1. Clone
+## Prerequisites
+
+- Xcode 14.0 or later
+- macOS 12.0 or later
+- iOS 15.0+ deployment target
+- CocoaPods
+
+## 1. Clone the Repository
 
 Clone the repo to a working directory:
 
-```
-git clone --recurse-submodules https://github.com/signalapp/Signal-iOS
-```
-
-Since we make use of sub-modules, you must use `git clone`, rather than
-downloading a prepared zip file from Github.
-
-We recommend you fork the repo on GitHub, then clone your fork:
-
-```
-git clone --recurse-submodules https://github.com/<USERNAME>/Signal-iOS.git
+```bash
+git clone --recurse-submodules https://github.com/<YOUR_USERNAME>/SecureChat-iOS.git
 ```
 
-You can then add the Signal repo to sync with upstream changes:
+Since we use git submodules, you must use `git clone` rather than downloading a zip file.
 
+If you plan to contribute, we recommend forking the repository first:
+
+```bash
+git clone --recurse-submodules https://github.com/<YOUR_FORK>/SecureChat-iOS.git
 ```
-git remote add upstream https://github.com/signalapp/Signal-iOS
-```
 
-## 2. Dependencies
+## 2. Install Dependencies
 
-To build and configure the libraries Signal uses, just run:
+Install the required dependencies using CocoaPods:
 
-```
+```bash
 make dependencies
 ```
 
-## 3. Xcode
+## 3. Configure Xcode
 
-Open the `Signal.xcworkspace` in Xcode.
+Open the workspace in Xcode:
 
-```
+```bash
 open Signal.xcworkspace
 ```
 
-In the TARGETS area of the General tab, change the Team drop down to
-your own. You will need to do that for all the listed targets, for ex.
-Signal, SignalShareExtension, and SignalNSE. You will need an Apple
-Developer account for this.
+### Development Team Setup
+1. In Xcode, select the project in the navigator
+2. For each target (Signal, SignalShareExtension, SignalNSE), go to the "Signing & Capabilities" tab
+3. Change the "Team" to your Apple Developer account
+4. The bundle identifier prefix is set to `com.securechat` by default
 
-On the Capabilities tab, turn off Push Notifications, Apple Pay,
-Communication Notifications, and Data Protection, while keeping Background Modes
-on. The App Groups capability will need to remain on in order to access the
-shared data storage. The best way to change the bundle ID for the app groups is
-setting `SIGNAL_BUNDLEID_PREFIX` in the project's settings.
+### Capabilities Configuration
+For development builds, you may need to adjust capabilities:
+- **Background Modes**: Keep enabled for message sync
+- **App Groups**: Keep enabled for data sharing between app and extensions
+- **Push Notifications**: Enable if you want to test notifications
+- **Data Protection**: Configure as needed for your use case
 
-If you wish to test the Documents API, the iCloud capability will need to
-be on with the iCloud Documents option selected.
+### Bundle Identifier
+The bundle identifier is controlled by the `SIGNAL_BUNDLEID_PREFIX` setting in the project configuration. By default, this is set to `com.securechat`.
 
-Build and Run and you are ready to go!
+## 4. Build and Run
 
-## Known issues
+Build the project in Xcode or using the command line:
 
-Features related to push notifications are known to be not working for
-third-party contributors since Apple's Push Notification service pushes
-will only work with Open Whisper Systems production code signing
-certificate.
+```bash
+xcodebuild -workspace Signal.xcworkspace -scheme Signal -configuration Debug
+```
 
-Turn on Push Notifications on the Capabilities tab if you want to register a new Signal account using the application installed via XCode.
+## Troubleshooting
 
-If you have any other issues, please ask on the [community forum](https://community.signalusers.org/).
+### Common Issues
+- **CocoaPods Issues**: Try `pod install --clean-install`
+- **Signing Issues**: Ensure your Apple Developer account is properly configured
+- **Build Failures**: Clean build folder (⌘+Shift+K) and rebuild
+
+### Getting Help
+If you encounter issues:
+1. Check the [Issues](../../issues) page for similar problems
+2. Search existing [discussions](../../discussions)
+3. Create a new issue with detailed information about your problem
+
+Happy coding! 🚀
