@@ -103,7 +103,7 @@ public class AnalyticsManager: NSObject {
     
     private let analyticsQueue = DispatchQueue(label: "com.securechat.analytics", qos: .utility)
     private let sessionId = UUID().uuidString
-    private let anonymizedUserId = UUID().unikString // Generate unique anonymous ID
+    private let anonymizedUserId = UUID().uuidString // Generate unique anonymous ID
     
     private var eventBuffer: [AnalyticsEventData] = []
     private let maxBufferSize = 100
