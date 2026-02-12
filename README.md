@@ -5,7 +5,21 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 
+> **🏗️ Built on Signal Protocol Foundation**  
+> This project extends the proven Signal iOS architecture with additional production-ready features for modern mobile messaging applications.
+
 SecureChat is a feature-rich, secure messaging application built for iOS with end-to-end encryption, offline capabilities, and advanced user experience features. Designed with privacy-first principles and modern mobile development patterns.
+
+## 🎯 **Project Objective**
+
+SecureChat demonstrates **advanced iOS development capabilities** by extending a proven messaging foundation with production-level features commonly found in enterprise messaging platforms. This project showcases:
+
+- **Modern iOS Development** patterns and architectures
+- **Production-ready features** like offline sync, analytics, and theming  
+- **Scalable code organization** and best practices
+- **User experience** enhancements and performance optimizations
+
+*This is a portfolio project designed to demonstrate iOS development expertise through practical feature implementation.*
 
 ## ✨ Key Features
 
@@ -116,22 +130,47 @@ The application follows modern iOS development patterns with:
 
 ## 🙏 Credits & Acknowledgments
 
-This project builds on the architecture and cryptographic foundations of the open-source [Signal iOS codebase](https://github.com/signalapp/Signal-iOS). 
+**Foundation**: This project builds on the architecture and cryptographic foundations of the open-source [Signal iOS codebase](https://github.com/signalapp/Signal-iOS) developed by [Signal Messenger, LLC](https://signal.org).
 
-The goal of this repository is to extend the proven Signal architecture with additional production mobile features such as:
+**Original Copyright**: The underlying Signal codebase is © 2013-2025 Signal Messenger, LLC, licensed under GNU AGPL v3. All original Signal copyright notices are preserved in the source code as required.
+
+**Project Purpose**: The goal of this repository is to demonstrate **advanced iOS development skills** by extending the proven Signal architecture with additional production mobile features:
+
+### 🚀 **New Features Developed**
 - **Offline messaging capabilities** for unreliable network conditions
-- **Analytics instrumentation** for product optimization  
-- **Advanced theming system** with manual controls
+- **Advanced analytics instrumentation** for product optimization  
+- **Dynamic theming system** with manual user controls
 - **Enhanced search functionality** across message history
-- **Modern iOS development patterns** and user experience improvements
+- **Modern iOS development patterns** and performance optimizations
 
-We are grateful to the Signal team for their groundbreaking work in secure communications and their commitment to open source software.
+### 📚 **What This Demonstrates**
+- **Senior-level iOS development** using Swift and modern frameworks
+- **Production-ready feature implementation** with proper architecture
+- **User experience design** and performance optimization
+- **Code organization** following industry best practices
+- **Analytics integration** and data pipeline development
 
-## 📄 License
+**Educational Use**: This is a **portfolio/educational project** designed to showcase iOS development capabilities through practical implementation of messaging app features commonly found in production applications.
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+We are grateful to the Signal team for their groundbreaking work in secure communications and their commitment to open source software that enables learning and innovation.
 
-Original Signal codebase components maintain their respective copyright notices as required by their licensing terms.
+## 📄 License & Legal
+
+This project is licensed under the MIT License for new features and contributions - see the [LICENSE](./LICENSE) file for details.
+
+**Original Signal codebase components maintain their respective copyright notices and GNU AGPL v3.0 licensing as required.**
+
+For complete legal information and attribution details, see [LEGAL_NOTICE.md](./LEGAL_NOTICE.md).
+
+## 🎓 Educational Use & Portfolio Purpose
+
+This repository is specifically designed as a **portfolio project** to demonstrate:
+- Advanced iOS development skills and modern Swift programming
+- Production-ready feature implementation and software architecture
+- Best practices in mobile application development
+- Technical expertise through practical, working implementations
+
+**This is not intended for commercial use or distribution**, but rather serves as a comprehensive showcase of iOS development capabilities built upon a proven, open-source foundation.
 
 ## 🛡️ Security
 
