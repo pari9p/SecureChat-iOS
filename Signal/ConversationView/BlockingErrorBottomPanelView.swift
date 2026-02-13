@@ -25,9 +25,19 @@ class BlockingErrorBottomPanelView: ConversationBottomPanelView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
+        label.adjustsFontForContentSizeCategory = true
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapLearnMore)))
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Enhanced accessibility
+        label.isAccessibilityElement = true
+        label.accessibilityTraits = [.staticText, .button]
+        label.accessibilityHint = OWSLocalizedString(
+            "BLOCKING_ERROR_ACCESSIBILITY_HINT",
+            comment: "Accessibility hint for blocking error message that can be tapped for more info"
+        )
+        
         contentView.addSubview(label)
 
         addConstraints([

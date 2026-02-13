@@ -93,10 +93,11 @@ open class TooltipView: UIView {
 
     /// Whether or not to add a blur effect to the bubble.
     ///
-    /// Note that this is ignored if
-    /// ``UIAccessibility.isReduceTransparencyEnabled`` is `true`.
+    /// Note that this is ignored if ``UIAccessibility.isReduceTransparencyEnabled`` is `true` 
+    /// for better accessibility support.
     open var bubbleBlur: Bool {
-        false
+        // Respect user's transparency preferences
+        return !UIAccessibility.isReduceTransparencyEnabled
     }
 
     open var bubbleRounding: CGFloat {

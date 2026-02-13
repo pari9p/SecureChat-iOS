@@ -25,6 +25,16 @@ class VoiceMessageTooltip: TooltipView {
         )
         label.font = UIFont.dynamicTypeBodyClamped
         label.textColor = Theme.primaryTextColor
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
+        
+        // Enhanced accessibility
+        label.isAccessibilityElement = true
+        label.accessibilityTraits = .staticText
+        label.accessibilityHint = OWSLocalizedString(
+            "VOICE_MESSAGE_TOOLTIP_ACCESSIBILITY_HINT",
+            comment: "Accessibility hint for voice message recording tooltip"
+        )
 
         return horizontalStack(forSubviews: [label])
     }

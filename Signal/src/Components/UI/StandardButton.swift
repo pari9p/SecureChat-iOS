@@ -30,6 +30,49 @@ class StandardButton: UIButton {
     private var buttonStyle: Style = .primary
     private var buttonSize: Size = .medium
     
+    /// Enhanced accessibility label that includes context about the button action
+    override var accessibilityLabel: String? {
+        get {
+            var label = super.accessibilityLabel ?? titleLabel?.text ?? ""
+            
+            // Add style context for better accessibility
+            switch buttonStyle {
+            case .destructive:
+                label = OWSLocalizedString(
+                    "BUTTON_ACCESSIBILITY_DESTRUCTIVE_PREFIX",
+                    comment: "Accessibility prefix for destructive buttons"
+                ) + " " + label
+            default:
+                break
+            }
+            
+            return label
+        }
+        set {
+            super.accessibilityLabel = newValue
+        }
+    }
+    
+    /// Enhanced accessibility traits based on button state and style
+    override var accessibilityTraits: UIAccessibilityTraits {
+        get {
+            var traits = super.accessibilityTraits
+            
+            if buttonStyle == .destructive {
+                traits.insert(.staticText) 
+            }
+            
+            if !isEnabled {
+                traits.insert(.notEnabled)
+            }
+            
+            return traits
+        }
+        set {
+            super.accessibilityTraits = newValue
+        }
+    }
+    
     // MARK: - Initialization
     init(style: Style = .primary, size: Size = .medium) {
         self.buttonStyle = style
@@ -57,6 +100,9 @@ class StandardButton: UIButton {
     
     // MARK: - Setup
     private func setupButton() {
+        // Enhanced accessibility setup
+        isAccessibilityElement = true
+        
         // Apply size configurations
         applySizeConfiguration()
         
@@ -65,6 +111,7 @@ class StandardButton: UIButton {
         
         // Common styling
         titleLabel?.font = fontForSize(buttonSize)
+        titleLabel?.adjustsFontForContentSizeCategory = true
         titleLabel?.adjustsFontSizeToFitWidth = false
         titleLabel?.lineBreakMode = .byTruncatingTail
         adjustsImageWhenHighlighted = false
