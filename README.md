@@ -55,13 +55,15 @@ A secure, modern messaging application for iOS built with privacy-first principl
 
 ## Getting Started
 
+## Getting Started
+
 ### Prerequisites
 - Xcode 14.0 or later
-- iOS 15.0+ deployment target
+- iOS 15.0+ deployment target  
 - CocoaPods installed
 - Apple Developer Account (for device testing)
 
-### Installation
+### Quick Setup
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/SecureChat-iOS.git
@@ -74,9 +76,80 @@ make dependencies
 open Signal.xcworkspace
 ```
 
+### Developer Onboarding
+
+1. **First Run Setup**
+   - Build and run the project in Simulator
+   - Create a test account for development
+   - Familiarize yourself with the app's core features
+
+2. **Code Architecture**
+   - Review [FEATURE_IMPLEMENTATION.md](./FEATURE_IMPLEMENTATION.md) for feature patterns
+   - Study the `SignalServiceKit` framework for core functionality
+   - Understand the theme system in `Signal/src/util/ThemeUtils.swift`
+
+3. **Testing**
+   - Run unit tests: `Cmd+U` in Xcode  
+   - Run UI tests: Select `SignalUITests` scheme
+   - Use `TestingViewController` for internal testing features
+
 For detailed build instructions, see [BUILDING.md](./BUILDING.md)
 
 ## Project Structure
+
+```
+Signal-iOS/
+├── Signal/               # Main iOS app target
+│   ├── src/             # Swift source files
+│   │   ├── Components/  # UI components and views  
+│   │   ├── util/        # Utility classes and extensions
+│   │   └── ViewControllers/ # App screens and navigation
+│   └── Images.xcassets/ # App images and icons
+├── SignalServiceKit/    # Core framework for messaging
+├── SignalUI/           # Shared UI components
+├── SignalNSE/          # Notification Service Extension  
+└── Pods/               # Third-party dependencies
+
+Key Files:
+- ThemeManager.swift     # App-wide theme system
+- AppOptimizer.swift     # Performance utilities  
+- StandardButton.swift   # Standardized UI components
+```
+
+## Troubleshooting
+
+### Common Build Issues
+
+**Pod Installation Problems**
+```bash
+# Clear pod cache and reinstall
+rm -rf Pods/ Podfile.lock
+pod install --repo-update
+```
+
+**Code Signing Issues**
+- Verify your Apple Developer account is active
+- Check bundle identifiers in project settings  
+- Ensure provisioning profiles are up to date
+
+**Missing Dependencies**
+```bash
+# Reinstall project dependencies
+make dependencies
+# If Makefile missing, run directly:
+./Scripts/setup_private_pods && pod install
+```
+
+**Runtime Crashes**  
+- Check Xcode console for error logs
+- Verify all required frameworks are linked
+- Test on latest iOS Simulator version
+
+### Getting Help
+
+- Check [existing issues](https://github.com/yourusername/SecureChat-iOS/issues) for known problems
+- Join our developer discussion in [Discussions](https://github.com/yourusername/SecureChat-iOS/discussions)  
+- Review [BUILDING.md](./BUILDING.md) for detailed setup instructions
 
 ```
 Signal-iOS/

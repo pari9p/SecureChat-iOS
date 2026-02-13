@@ -51,11 +51,38 @@ Feature requests should:
 
 ### Code Quality Standards
 
-- Write clean, readable code with meaningful variable names
-- Follow Swift style guidelines and conventions
-- Include unit tests for new functionality
-- Ensure all tests pass before submitting
-- Update documentation as needed
+- **Swift Style**: Follow [Swift.org style guidelines](https://swift.org/documentation/api-design-guidelines/)
+- **Architecture**: Use MVVM patterns for view controllers
+- **Theme Support**: All UI components should integrate with `ThemeManager`
+- **Logging**: Use `Logger` instead of `print()` statements
+- **Error Handling**: Prefer proper error handling over force unwrapping
+- **Unit Tests**: Write tests for business logic and utility functions
+- **UI Tests**: Add UI tests for critical user flows
+
+### Code Review Checklist
+
+- [ ] Code follows Swift style guidelines
+- [ ] All new UI respects dark/light theme settings
+- [ ] Unit tests cover new functionality  
+- [ ] No debug print statements in final code
+- [ ] Proper error handling implementation
+- [ ] Documentation updated if needed
+- [ ] Performance impact considered for data operations
+
+### Development Tools
+
+- **Linting**: Use SwiftLint for code consistency
+- **Debugging**: Leverage `InternalSettingsViewController` for development tools
+- **Performance**: Use Xcode Instruments for optimization
+- **Testing**: Run both `SignalTests` and `SignalUITests` suites
+
+### Security Considerations
+
+When contributing features that handle sensitive data:
+- Review cryptographic implementations 
+- Ensure proper key management practices
+- Consider privacy implications of new data storage
+- Test with disappearing message scenarios
 
 ### Review Process
 
