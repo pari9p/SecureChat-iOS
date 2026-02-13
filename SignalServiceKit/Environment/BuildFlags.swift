@@ -50,7 +50,7 @@ public enum BuildFlags {
         public static let avoidStoreKitForTesters = build <= .beta
 
         public static let useLowerDefaultListMediaRefreshInterval = build <= .beta
-        public static let performListMediaIntegrityChecks = build <= .beta
+        public static let performListMediaIntegrityChecks = build <= .production
     }
 
     public static let callQualitySurvey = true
