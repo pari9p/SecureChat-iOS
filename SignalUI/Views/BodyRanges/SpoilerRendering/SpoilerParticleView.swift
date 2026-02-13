@@ -407,9 +407,9 @@ class SpoilerParticleView: MTKView {
 
     fileprivate enum Constants {
         /// After this many particles, framerate, number of layers, and particle velocity degrade.
-        static let particleCountEfficiencyThreshold: CGFloat = 1000
+        static let particleCountEfficiencyThreshold: CGFloat = 750 // Reduced for better performance
         /// Allow up to a maximum number of particles, to put an upper bound on compute.
-        static let maxParticleCountPerLayer: CGFloat = 5000
+        static let maxParticleCountPerLayer: CGFloat = 3500 // Reduced memory footprint
     }
 }
 

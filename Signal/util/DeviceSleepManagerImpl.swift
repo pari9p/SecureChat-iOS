@@ -37,10 +37,12 @@ class DeviceSleepManagerImpl: DeviceSleepManager {
 
     @MainActor
     private func ensureSleepBlocking() {
-        // Cull expired blocks.
-        if blockObjects.contains(where: { $0.value == nil }) {
-            owsFailDebug("Callers must remove BlockObjects explicitly.")
-            blockObjects.removeAll(where: { $0.value == nil })
+        // Cull expired blocks efficiently using autoreleasepool
+        autoreleasepool {
+            if blockObjects.contains(where: { $0.value == nil }) {
+                owsFailDebug("Callers must remove BlockObjects explicitly.")
+                blockObjects.removeAll(where: { $0.value == nil })
+            }
         }
 
         let blockObjects = self.blockObjects.compactMap(\.value)

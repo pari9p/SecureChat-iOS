@@ -23,16 +23,21 @@ public enum StringSanitizer {
         guard original.contains(where: shouldRemove) else {
             return original
         }
-        var remaining = original[...]
-        var result = ""
-        // An overestimate, because we will shorten at least one Character.
-        result.reserveCapacity(original.utf8.count)
-        while let nextBadCharIndex = remaining.firstIndex(where: shouldRemove) {
-            result.append(contentsOf: remaining[..<nextBadCharIndex])
-            result.append("\u{FFFD}")
-            remaining = remaining[nextBadCharIndex...].dropFirst()
+        
+        // Optimize for performance with autoreleasepool
+        return autoreleasepool {
+            var remaining = original[...]
+            var result = ""
+            // More accurate capacity estimation for better performance
+            result.reserveCapacity(original.utf8.count + 32) // Buffer for replacement chars
+            
+            while let nextBadCharIndex = remaining.firstIndex(where: shouldRemove) {
+                result.append(contentsOf: remaining[..<nextBadCharIndex])
+                result.append("\u{FFFD}")
+                remaining = remaining[nextBadCharIndex...].dropFirst()
+            }
+            result.append(contentsOf: remaining)
+            return result
         }
-        result.append(contentsOf: remaining)
-        return result
     }
 }

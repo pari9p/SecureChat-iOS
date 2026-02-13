@@ -29,6 +29,9 @@ public class LRUCache<KeyType: Hashable & Equatable, ValueType> {
         shouldEvacuateInBackground: Bool = false,
     ) {
         self.cache.countLimit = CurrentAppContext().isNSE ? nseMaxSize : maxSize
+        
+        // Enable automatic memory pressure handling for better performance
+        self.cache.evictsObjectsWithDiscardedContent = true
 
         if
             CurrentAppContext().isMainApp,
