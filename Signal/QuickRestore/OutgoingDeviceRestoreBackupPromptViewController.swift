@@ -115,8 +115,9 @@ struct OutgoingDeviceRestoreBackupPromptView: View {
                 backupFileSizeBytes: 1024,
                 backupTotalSizeBytes: 4096,
             ),
-            makeBackupCallback: {
-                print("Should do backup? \($0)")
+            makeBackupCallback: { shouldBackup in
+                // Handle backup creation request
+                Logger.info("Backup requested: \(shouldBackup)")
             },
         ),
     )

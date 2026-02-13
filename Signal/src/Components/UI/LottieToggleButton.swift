@@ -48,7 +48,12 @@ class LottieToggleButton: UIButton {
 
     func setSelected(_ isSelected: Bool, animated: Bool) {
         AssertIsOnMainThread()
-        guard let animationView else { return owsFailDebug("missing animation view") }
+        
+        guard let animationView = animationView else {
+            Logger.warn("Animation view not available, setting selection state directly")
+            self.isSelected = isSelected
+            return
+        }
 
         if animated {
             animationView.play(

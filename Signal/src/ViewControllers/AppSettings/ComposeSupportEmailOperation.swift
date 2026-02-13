@@ -193,8 +193,9 @@ final class ComposeSupportEmailOperation: NSObject {
                 do throws(DebugLogs.UploadDebugLogError) {
                     return try await DebugLogs.uploadLogs(dumper: dumper)
                 } catch {
-                    // FIXME: Should we do something with the local log file?
+                    // Clean up local log file after upload failure 
                     if let logArchiveOrDirectoryPath = error.logArchiveOrDirectoryPath {
+                        Logger.warn("Debug log upload failed, cleaning up local file: \(logArchiveOrDirectoryPath)")
                         _ = OWSFileSystem.deleteFile(logArchiveOrDirectoryPath)
                     }
                     throw DebugLogsUploadError(localizedDescription: error.localizedErrorMessage)

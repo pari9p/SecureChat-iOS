@@ -43,7 +43,10 @@ struct OutgoingDeviceRestoreInitialView: View {
                         comment: "Body text describing the outgoing transfer.",
                     ))
                     .appendLink(CommonStrings.learnMore) {
-                        UIApplication.shared.open(URL(string: "TODO: link to documentation")!)
+                        // Open device transfer documentation
+                        if let docURL = URL(string: "https://support.signal.org/hc/articles/360007320451-Transfer-account") {
+                            UIApplication.shared.open(docURL)
+                        }
                     }
                     .font(.subheadline)
                     .foregroundStyle(Color.Signal.secondaryLabel)
