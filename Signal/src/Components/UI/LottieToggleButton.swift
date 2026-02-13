@@ -32,6 +32,13 @@ class LottieToggleButton: UIButton {
     override var isSelected: Bool {
         didSet {
             animationView?.currentProgress = isSelected ? 1 : 0
+            updateThemeColors()
+        }
+    }
+    
+    override var isEnabled: Bool {
+        didSet {
+            updateThemeColors()
         }
     }
 
@@ -58,6 +65,62 @@ class LottieToggleButton: UIButton {
     }
 
     private weak var animationView: LottieAnimationView?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupThemeObserver()
+        applyConsistentStyling()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupThemeObserver()
+        applyConsistentStyling()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func setupThemeObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(themeDidChange),
+            name: .themeDidChange,
+            object: nil
+        )
+    }
+    
+    @objc private func themeDidChange() {
+        updateThemeColors()
+    }
+    
+    private func applyConsistentStyling() {
+        // Apply consistent button styling
+        layer.cornerRadius = 8.0
+        layer.borderWidth = 1.0
+        clipsToBounds = true
+        updateThemeColors()
+    }
+    
+    private func updateThemeColors() {
+        if isSelected {
+            backgroundColor = UIColor.secureChatPrimary
+            layer.borderColor = UIColor.secureChatPrimary.cgColor
+            tintColor = UIColor.secureChatSecondaryBackground
+        } else {
+            backgroundColor = UIColor.secureChatSecondaryBackground
+            layer.borderColor = UIColor.secureChatSeparator.cgColor
+            tintColor = UIColor.secureChatText
+        }
+        
+        if !isEnabled {
+            alpha = 0.6
+        } else {
+            alpha = 1.0
+        }
+    }
+    
     private func updateAnimationView() {
         animationView?.removeFromSuperview()
         guard let animationName else { return }

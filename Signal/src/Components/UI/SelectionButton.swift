@@ -7,12 +7,11 @@ import SignalUI
 import UIKit
 
 /// A checkmark in a circle to indicate an item (typically in a table view or collection view) is
-/// selected.
+/// selected. Enhanced with theme support and consistent styling.
 class SelectionButton: UIView {
     private let outlineBadgeView: UIView = {
         let imageView = UIImageView(image: UIImage(imageLiteralResourceName: "circle"))
         imageView.contentMode = .center
-        imageView.tintColor = .white
         imageView.isHidden = true
         return imageView
     }()
@@ -20,11 +19,9 @@ class SelectionButton: UIView {
     private let selectedBadgeView: UIView = {
         let imageView = UIImageView(image: UIImage(imageLiteralResourceName: "check-circle-fill"))
         imageView.contentMode = .center
-        imageView.tintColor = .ows_accentBlue
 
-        // This will give checkmark it's color.
+        // Background circle for checkmark
         let backgroundView = CircleView(diameter: 18)
-        backgroundView.backgroundColor = .white
 
         let containerView = UIView(frame: imageView.bounds)
         containerView.isHidden = true
@@ -50,12 +47,6 @@ class SelectionButton: UIView {
         }
     }
 
-    var outlineColor: UIColor = .white {
-        didSet {
-            outlineBadgeView.tintColor = outlineColor
-        }
-    }
-
     var hidesOutlineWhenSelected: Bool = false {
         didSet {
             updateAppearance()
@@ -64,7 +55,23 @@ class SelectionButton: UIView {
 
     init() {
         super.init(frame: .zero)
+        setupView()
+        setupThemeObserver()
+        applyConsistentStyling()
+    }
 
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+        setupThemeObserver()
+        applyConsistentStyling()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func setupView() {
         addSubview(selectedBadgeView)
         selectedBadgeView.autoCenterInSuperview()
 
@@ -73,9 +80,32 @@ class SelectionButton: UIView {
 
         autoSetDimensions(to: .square(24))
     }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    private func setupThemeObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(themeDidChange),
+            name: .themeDidChange,
+            object: nil
+        )
+    }
+    
+    @objc private func themeDidChange() {
+        applyConsistentStyling()
+        updateAppearance()
+    }
+    
+    private func applyConsistentStyling() {
+        // Apply consistent theme colors
+        outlineBadgeView.tintColor = UIColor.secureChatSecondaryText
+        
+        if let imageView = selectedBadgeView.subviews.last as? UIImageView {
+            imageView.tintColor = UIColor.secureChatPrimary
+        }
+        
+        if let backgroundView = selectedBadgeView.subviews.first as? CircleView {
+            backgroundView.backgroundColor = UIColor.secureChatSecondaryBackground
+        }
     }
 
     private func updateAppearance() {
