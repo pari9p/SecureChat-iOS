@@ -1,188 +1,172 @@
-# SecureChat – Secure Real-Time Messaging iOS App
+# SecureChat iOS
 
 [![iOS](https://img.shields.io/badge/iOS-15.0%2B-blue.svg)](https://developer.apple.com/ios/)
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 
-> **🏗️ Built on Signal Protocol Foundation**  
-> This project extends the proven Signal iOS architecture with additional production-ready features for modern mobile messaging applications.
+A secure, modern messaging application for iOS built with privacy-first principles and end-to-end encryption. Built on the proven Signal Protocol foundation with additional production-ready features for modern mobile communication.
 
-SecureChat is a feature-rich, secure messaging application built for iOS with end-to-end encryption, offline capabilities, and advanced user experience features. Designed with privacy-first principles and modern mobile development patterns.
-
-## 🎯 **Project Objective**
-
-SecureChat demonstrates **advanced iOS development capabilities** by extending a proven messaging foundation with production-level features commonly found in enterprise messaging platforms. This project showcases:
-
-- **Modern iOS Development** patterns and architectures
-- **Production-ready features** like offline sync, analytics, and theming  
-- **Scalable code organization** and best practices
-- **User experience** enhancements and performance optimizations
-
-*This is a portfolio project designed to demonstrate iOS development expertise through practical feature implementation.*
-
-## ✨ Key Features
+## Features
 
 ### 🔐 Security & Privacy
-- **End-to-end encryption** for all messages using Signal Protocol
-- **Perfect forward secrecy** with automatic key rotation
-- **Zero-knowledge architecture** - we can't read your messages
-- **Disappearing messages** with custom timers
-- **Screen security** prevents screenshots in sensitive areas
+- **End-to-end encryption** powered by Signal Protocol
+- **Perfect forward secrecy** with automatic key rotation  
+- **Zero-knowledge architecture** - messages are unreadable to us
+- **Disappearing messages** with customizable timers
+- **Screen protection** against unauthorized screenshots
 
-### 🚀 Advanced Messaging
-- **Offline Message Queue** � - Messages sent without internet are queued locally and auto-sent when connection returns
-- **Real-time delivery** with read receipts and typing indicators
+### 💬 Messaging
+- **Real-time messaging** with delivery and read receipts
+- **Group conversations** with admin controls and member management
 - **Rich media support** - photos, videos, documents, voice messages
-- **Group messaging** with admin controls and member management
-- **Message reactions** and threaded conversations
+- **Message reactions** and reply threading
+- **Typing indicators** and presence status
 
-### 🎨 User Experience
-- **Dark/Light Theme Toggle** 🌗 - Manual theme switching with system preference override
-- **Message Search** � - Powerful search across all conversations with filtering
-- **Customizable notifications** with granular controls
-- **Voice and video calling** with crystal clear quality
-- **Cross-device synchronization** (planned)
+### 📱 User Experience  
+- **Offline message queue** - send messages without internet connection
+- **Global message search** with advanced filtering capabilities
+- **Dark/Light theme** with manual toggle and system integration
+- **Customizable notifications** with granular privacy controls
+- **Voice and video calling** with crystal-clear quality
 
-### 📊 Developer Features
-- **App Analytics Logger** � - Privacy-conscious usage analytics for optimization
+### 🛠 Developer Features
+- **Privacy-conscious analytics** for performance optimization
 - **Crash reporting** with automatic collection
-- **Performance monitoring** and optimization
-- **A/B testing framework** for feature rollouts
+- **A/B testing framework** for feature experimentation
+- **Performance monitoring** and optimization tools
 
-## 🏗️ Architecture & Tech Stack
+## Screenshots
 
-- **Language**: Swift 5.0+ with Objective-C interop
-- **Architecture**: MVVM with Reactive Programming (Combine/RxSwift)
-- **Encryption**: Signal Protocol implementation
-- **Database**: SQLCipher for encrypted local storage
-- **Networking**: Custom WebSocket + REST API implementation
-- **UI Framework**: UIKit with programmatic layouts
-- **Dependency Management**: CocoaPods
-- **Testing**: XCTest with UI automation
-
-## 📱 Screenshots
-
-*Coming soon - app screenshots showcasing the beautiful interface*
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Xcode 14.0+
-- iOS 15.0+
-- CocoaPods
-- Apple Developer Account (for device testing)
-
-### Quick Setup
-```bash
-git clone https://github.com/yourusername/SecureChat-iOS.git
-cd SecureChat-iOS
-make dependencies
-open Signal.xcworkspace
-```
-
-See [BUILDING.md](./BUILDING.md) for detailed setup instructions.
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our:
-- [Contributing Guidelines](./CONTRIBUTING.md)
-- [Code of Conduct](./CODE_OF_CONDUCT.md)
-- [Security Policy](./SECURITY.md)
-
-### Feature Roadmap
-- [ ] Cross-platform desktop app
-- [ ] Advanced group permissions
-- [ ] Message scheduling
-- [ ] Custom emoji reactions
-- [ ] Voice message transcription
-- [ ] Multi-device message sync
-
-## 📊 Analytics & Privacy
-
-SecureChat includes privacy-conscious analytics that help us improve the app:
-- **No personal data** is ever collected
-- **Usage patterns** help optimize performance
-- **Crash reports** improve stability
-- **All analytics respect** user privacy preferences
-
-## Contributing Bug Reports
-
-Please submit bug reports by opening an issue in this repository. Include detailed steps to reproduce the issue and relevant system information.
-
-## Contributing Code
-
-Instructions for setting up your development environment and building the project can be found in [BUILDING.md](./BUILDING.md). Please read the [contribution guidelines](./CONTRIBUTING.md) before submitting pull requests.
-
-## Development
-
-This project is built using:
-- Swift/Objective-C
-- CocoaPods for dependency management
-- Xcode for development
+<!-- Coming Soon: App screenshots showcasing the interface -->
+*Screenshots will be added to demonstrate the app's user interface and key features*
 
 ## Architecture
 
-The application follows modern iOS development patterns with:
-- MVVM architecture
-- Protocol-oriented programming
-- Reactive programming concepts
+**Built with modern iOS development practices:**
 
-## 🙏 Credits & Acknowledgments
+- **Language**: Swift 5.0+ with strategic Objective-C interop
+- **Architecture**: MVVM with reactive programming patterns
+- **Security**: Signal Protocol for cryptographic operations
+- **Storage**: SQLCipher for encrypted local data persistence
+- **Networking**: WebSocket real-time communication + REST API
+- **UI**: UIKit with programmatic Auto Layout
+- **Dependencies**: CocoaPods for package management
 
-**Foundation**: This project builds on the architecture and cryptographic foundations of the open-source [Signal iOS codebase](https://github.com/signalapp/Signal-iOS) developed by [Signal Messenger, LLC](https://signal.org).
+## Getting Started
 
-**Original Copyright**: The underlying Signal codebase is © 2013-2025 Signal Messenger, LLC, licensed under GNU AGPL v3. All original Signal copyright notices are preserved in the source code as required.
+### Prerequisites
+- Xcode 14.0 or later
+- iOS 15.0+ deployment target
+- CocoaPods installed
+- Apple Developer Account (for device testing)
 
-**Project Purpose**: The goal of this repository is to demonstrate **advanced iOS development skills** by extending the proven Signal architecture with additional production mobile features:
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/SecureChat-iOS.git
+cd SecureChat-iOS
 
-### 🚀 **New Features Developed**
-- **Offline messaging capabilities** for unreliable network conditions
-- **Advanced analytics instrumentation** for product optimization  
-- **Dynamic theming system** with manual user controls
-- **Enhanced search functionality** across message history
-- **Modern iOS development patterns** and performance optimizations
+# Install dependencies
+make dependencies
 
-### 📚 **What This Demonstrates**
-- **Senior-level iOS development** using Swift and modern frameworks
-- **Production-ready feature implementation** with proper architecture
-- **User experience design** and performance optimization
-- **Code organization** following industry best practices
-- **Analytics integration** and data pipeline development
+# Open workspace
+open Signal.xcworkspace
+```
 
-**Educational Use**: This is a **portfolio/educational project** designed to showcase iOS development capabilities through practical implementation of messaging app features commonly found in production applications.
+For detailed build instructions, see [BUILDING.md](./BUILDING.md)
 
-We are grateful to the Signal team for their groundbreaking work in secure communications and their commitment to open source software that enables learning and innovation.
+## Project Structure
 
-## 📄 License & Legal
+```
+Signal-iOS/
+├── Signal/                 # Main application target
+│   ├── src/               # Core application source
+│   ├── ConversationView/  # Chat interface components
+│   ├── Settings/          # App configuration screens
+│   └── Registration/      # User onboarding flow
+├── SignalServiceKit/      # Networking & protocol layer
+├── SignalUI/             # Reusable UI components
+├── SignalNSE/            # Notification service extension
+└── ThirdParty/           # External dependencies
+```
 
-This project is licensed under the MIT License for new features and contributions - see the [LICENSE](./LICENSE) file for details.
+## Development
 
-**Original Signal codebase components maintain their respective copyright notices and GNU AGPL v3.0 licensing as required.**
+### Building the Project
+1. Install [CocoaPods](https://cocoapods.org/) dependency manager
+2. Install required dependencies with `make dependencies`
+3. Open `Signal.xcworkspace` in Xcode
+4. Build and run on simulator or device
 
-For complete legal information and attribution details, see [LEGAL_NOTICE.md](./LEGAL_NOTICE.md).
+### Code Architecture
+- **MVVM Pattern**: Clear separation between views, view models, and models
+- **Protocol-Oriented**: Extensive use of protocols for modularity
+- **Reactive Programming**: Event-driven architecture with modern patterns
+- **Dependency Injection**: Testable and maintainable code structure
 
-## 🎓 Educational Use & Portfolio Purpose
+## Contributing
 
-This repository is specifically designed as a **portfolio project** to demonstrate:
-- Advanced iOS development skills and modern Swift programming
-- Production-ready feature implementation and software architecture
-- Best practices in mobile application development
-- Technical expertise through practical, working implementations
+We welcome contributions to SecureChat! Please review our guidelines:
 
-**This is not intended for commercial use or distribution**, but rather serves as a comprehensive showcase of iOS development capabilities built upon a proven, open-source foundation.
+- **[Contributing Guide](./CONTRIBUTING.md)** - Development workflow and standards
+- **[Code of Conduct](./CODE_OF_CONDUCT.md)** - Community guidelines  
+- **[Security Policy](./SECURITY.md)** - Responsible disclosure process
 
-## 🛡️ Security
+### Development Roadmap
+- [ ] Enhanced group permissions and moderation tools
+- [ ] Message scheduling and delayed send features  
+- [ ] Voice message transcription with privacy
+- [ ] Cross-platform desktop companion app
+- [ ] Advanced message formatting and rich text
 
-For security concerns, please review our [Security Policy](./SECURITY.md) and report vulnerabilities responsibly.
+## Privacy & Analytics
 
-## 📞 Contact & Support
+SecureChat includes privacy-conscious analytics to improve the user experience:
+- **No personal data** collection - analytics are fully anonymized
+- **Usage patterns** help optimize app performance and reliability
+- **Crash reports** improve stability without exposing user content  
+- **Optional participation** - users control all analytics preferences
+
+All analytics respect user privacy and can be completely disabled in settings.
+
+## Legal & Attribution
+
+### License
+This project is licensed under the MIT License for new contributions - see [LICENSE](./LICENSE) for details.
+
+### Signal Protocol Attribution
+This application builds upon the cryptographic foundations of the [Signal Protocol](https://signal.org/docs/) and extends the architecture from the open-source [Signal iOS](https://github.com/signalapp/Signal-iOS) codebase.
+
+**Original Copyright**: Signal iOS codebase © 2013-2025 Signal Messenger, LLC  
+**License**: GNU AGPL v3.0 (for original Signal components)
+
+All original Signal copyright notices and licensing are preserved as required.
+
+### Purpose & Educational Use
+This project serves as a **portfolio/educational demonstration** of:
+- Advanced iOS development skills and Swift programming
+- Production-ready mobile application architecture
+- Privacy-focused software engineering practices
+- Modern user experience design and implementation
+
+**Not intended for commercial distribution** - built for learning and skills demonstration.
+
+## Security
+
+Privacy and security are our top priorities. For security concerns:
+- Review our [Security Policy](./SECURITY.md)
+- Report vulnerabilities responsibly through proper channels
+- All security issues are handled with appropriate urgency
+
+## Support & Contact
 
 - **Issues**: [GitHub Issues](../../issues)
-- **Discussions**: [GitHub Discussions](../../discussions)
-- **Security**: See [SECURITY.md](./SECURITY.md)
+- **Discussions**: [GitHub Discussions](../../discussions)  
+- **Documentation**: See project wiki and documentation files
+- **Security**: Follow responsible disclosure in [SECURITY.md](./SECURITY.md)
 
 ---
 
-**Built with ❤️ for privacy and security**  
-*SecureChat - Where your conversations stay yours*
+**Built with privacy and security as core principles**  
+*SecureChat - Modern messaging that respects your privacy*
